@@ -1,0 +1,20 @@
+#!/bin/bash
+# -*- sh -*- #
+
+if [ ! -z "${_PATH_LOADED}" ]; then
+    return
+fi
+export _PATH_LOADED="TRUE"
+
+if [ -d "${HOME}/bin" ]; then
+    PATH="${HOME}/bin:${PATH}"
+fi
+
+if [ -d "${HOME}/sbin" ]; then
+    PATH="${HOME}/sbin:${PATH}"
+fi
+
+if [ ! -z "${GOPATH}" ]; then
+    PATH="${GOPATH}/bin:${PATH}"
+fi
+
