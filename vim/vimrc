@@ -1,27 +1,58 @@
 
-set nocompatible
+set nocompatible " Turn on vi incompatible features
 
+" Turn on filetype detection and syntax highlighting
 filetype indent plugin on
 syntax on
 
-set hidden
-set wildmenu
-set showcmd
-set hlsearch
-set ignorecase
-set smartcase
-set backspace=indent,eol,start
-set autoindent
-set ruler
-set laststatus=2
-set confirm
-set visualbell
-set t_vb=
-set mouse=a
-set cmdheight=2
-set number
+" Search options
+" ==============
+set hlsearch  " Highlight matches when searching
+set ignorecase  " Searches ignore case
+set smartcase  " Searches are case sensitive if term has uppercase letters
 
-set shiftwidth=4
-set softtabstop=4
-set expandtab
+" Display options
+" ===============
+set ruler  " Display (line,column) on the status bar
+set number  " Put line numbers on the left side of the screen
+set laststatus=2  " Always show the status line
+set cmdheight=2  " Use 2 lines for the command bar
+set showcmd  " Show the last used command always
+set wildmenu  " Use the wildmenu extension - better menu support
+
+" Alert/bell settings
+" ===================
+set visualbell " Tell vim not to use an audible bell, but to flash the screen
+" t_vb is the output code to display a visual bell, setting it to nothing
+" causes vim to do nothing when it would have alerted you
+set t_vb= 
+
+set backspace=indent,eol,start  " Make backspace work 'normally'
+set confirm  " Give option to save if unsaved buffers exist on exit
+set hidden  " Keep bufers alive when switching
+set mouse=a  " Turn on mouse support (if available)
+
+" Indentation Settings
+" ====================
+set autoindent  " Automatically indent on newline
+set tabstop=4  " Set length of tab literals (default: 8)
+set shiftwidth=4  " Set how large a 'shift' is
+set softtabstop=4  " Set soft tab behavior - uses spaces and tabs
+set expandtab  " Expand all tab characters to spaces
+
+" Code indenting options - see vim documentation indent.txt
+"     http://vimdoc.sourceforge.net/htmldoc/indent.html
+set cino=s,e0,n0,f0,{0,}0,^0,L-1,:0,=s,l0,b0,g0,hs,ps,ts,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,m0,j0,J0,)20,*70,#0
+
+" Color Options
+" =============
+if $DISPLAY == "" && ($COLORTERM == "truecolor" || $COLORTERM == "24bit")
+    " If $DISPLAY is empty, then we are in a terminal
+    " If $COLORTERM is "truecolor" or "24bit" we can use 'ANSI' 24 bit color
+    " escapes for coloring the text
+    " A partial list of terminals which support truecolor can be found at:
+    "   https://gist.github.com/XVilka/8346728#now-supporting-truecolour
+    set termguicolors " Use truecolor in terminals
+endif
+color desert  " Set colors used - change this to any supported color set
 
