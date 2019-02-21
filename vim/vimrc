@@ -46,12 +46,12 @@ set cino=s,e0,n0,f0,{0,}0,^0,L-1,:0,=s,l0,b0,g0,hs,ps,ts,is,+s,c3,C0,/0,(2s,us,U
 
 " Color Options
 " =============
-if $COLORTERM == "truecolor" || $COLORTERM == "24bit")
+if $COLORTERM == "truecolor" || $COLORTERM == "24bit"
     " If $COLORTERM is "truecolor" or "24bit" we can use 'ANSI' 24 bit color
     " escapes for coloring the text
     " A partial list of terminals which support truecolor can be found at:
     "   https://gist.github.com/XVilka/8346728#now-supporting-truecolour
     set termguicolors " Use truecolor in terminals
 endif
-color desert  " Set colors used - change this to any supported color set
+color solarized8  " Set colors used - change this to any supported color set
 

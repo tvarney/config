@@ -1,9 +1,9 @@
 
 # Prevent double eval
-if [ ! -z "${_PROFILE_LOADED}" ]; then
+if [ ! -z "${_PROFILE_LOADING}" ]; then
     return
 fi
-export _PROFILE_LOADED="TRUE"
+export _PROFILE_LOADING="TRUE"
 
 # Functon which encapsulates the check and sourcing of a sub-script
 function import() {
@@ -23,4 +23,6 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 import "${HOME}/.path"
+
+unset _PROFILE_LOADING
 

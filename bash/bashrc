@@ -1,15 +1,14 @@
 
-if [ ! -z "${_BASHRC_LOADED}" ]; then
+if [ ! -z "${_BASHRC_LOADING}" ]; then
     return
 fi
-export _BASHRC_LOADED="TRUE"
+export _BASHRC_LOADING="TRUE"
 
-if [ -z "$_PROFILE_LOADED" ]; then
-    if [ -e "${HOME}/.profile" ]; then
-        source "${HOME}/.profile"
-    else
-        return
-    fi
+if [ -e "${HOME}/.profile" ]; then
+    source "${HOME}/.profile"
+else
+    echo "Missing \"${HOME}/.profile\""
+    return
 fi
 
 # If not running interactively, don't do anything
@@ -57,4 +56,6 @@ fi
 
 import .aliases
 import "${HOME}/.shutils/config.sh"
+
+unset _BASHRC_LOADING
 
