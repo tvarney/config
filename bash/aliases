@@ -25,3 +25,5 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+alias cpcwd='pwd | xclip -i'
+alias pastecwd='cd $(xclip -o)'
