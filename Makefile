@@ -44,6 +44,6 @@ vim_packages:
 
 .PHONY: shutils
 shutils:
-	git clone https://github.com/tvarney/shutil.git ./shutil/
+	git submodule update --init --recursive
 	$(MAKE) -C ./shutil/ install
 

@@ -1,0 +1,3 @@
+[submodule "shutil"]
+	path = shutil
+	url = ../shutil.git
